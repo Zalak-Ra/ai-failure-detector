@@ -17,3 +17,10 @@ def mul(a, b):
 def div(a, b):
     logger.info("div called: %s/%s", a, b)
     return a/b
+
+def slow_function(n):
+    total = 0
+    for i in range(n):
+        for j in range(n):
+            total += i * j
+    return total
