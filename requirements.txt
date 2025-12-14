@@ -1,0 +1,12 @@
+# requirements.txt
+pytest
+bandit
+black
+flake8
+psutil
+requests
+numpy
+scikit-learn
+torch            # optional (if you’ll use deep models)
+transformers     # optional (LLMs)
+pytest-cov
