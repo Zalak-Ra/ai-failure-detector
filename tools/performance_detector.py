@@ -1,4 +1,3 @@
-# tools/performance_detector.py
 import time
 import psutil
 import os

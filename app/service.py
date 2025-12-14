@@ -1,7 +1,13 @@
 import logging
-logger = logging.getLogger(__name__)
-logger.addHandler(logging.StreamHandler())
+logger = logging.getLogger("app")
 logger.setLevel(logging.INFO)
+
+handler = logging.FileHandler("app.log")
+formatter = logging.Formatter(
+    "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+)
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 
 def add(a, b):
@@ -24,3 +30,6 @@ def slow_function(n):
         for j in range(n):
             total += i * j
     return total
+
+def crash():
+    return 1 / 0

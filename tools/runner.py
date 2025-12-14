@@ -4,6 +4,10 @@ import sys
 from tools.functional_detector import detect as functional_detect
 from tools.static_detector import detect as static_detect
 from tools.performance_detector import measure, detect_performance
+from tools.reliability_detector import detect_exception, analyze_logs
+from tools.environment_detector import detect_environment
+
+from app.service import crash
 
 from app.service import slow_function
 
@@ -39,6 +43,15 @@ def run():
         [sys.executable, "-m", "pytest", "-q", "--disable-warnings"],
         check=False
     )
+
+    print("\n========== RELIABILITY CHECK ==========")
+    print(detect_exception(crash))
+    print(analyze_logs())
+
+    print("\n========== ENVIRONMENT CHECK ==========")
+    env_report = detect_environment()
+    print(env_report)
+
 
 
 if __name__ == "__main__":
