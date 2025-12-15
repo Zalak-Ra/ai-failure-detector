@@ -32,4 +32,4 @@ def slow_function(n):
     return total
 
 def crash():
-    return 1 / 0
+    return (1/0)
